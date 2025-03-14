@@ -1,0 +1,2 @@
+[2024-11-12T11:43:02.278+0000] {taskinstance.py:1149} INFO - Dependencies not met for <TaskInstance: beautiful.extract_from manual__2024-11-12T05:40:48.950468+00:00 [failed]>, dependency 'Task Instance State' FAILED: Task is in the 'failed' state.
+[2024-11-12T11:43:02.324+0000] {local_task_job_runner.py:154} INFO - Task is not able to be run

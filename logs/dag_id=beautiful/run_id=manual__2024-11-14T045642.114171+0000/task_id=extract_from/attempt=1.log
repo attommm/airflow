@@ -1,0 +1,69 @@
+[2024-11-14T04:56:52.680+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: beautiful.extract_from manual__2024-11-14T04:56:42.114171+00:00 [queued]>
+[2024-11-14T04:56:52.737+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: beautiful.extract_from manual__2024-11-14T04:56:42.114171+00:00 [queued]>
+[2024-11-14T04:56:52.738+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 1
+[2024-11-14T04:56:52.829+0000] {taskinstance.py:1382} INFO - Executing <Task(PythonOperator): extract_from> on 2024-11-14 04:56:42.114171+00:00
+[2024-11-14T04:56:52.850+0000] {standard_task_runner.py:57} INFO - Started process 594 to run task
+[2024-11-14T04:56:52.847+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'beautiful', 'extract_from', 'manual__2024-11-14T04:56:42.114171+00:00', '--job-id', '44', '--raw', '--subdir', 'DAGS_FOLDER/beautiful.py', '--cfg-path', '/tmp/tmppcpz_mdm']
+[2024-11-14T04:56:52.860+0000] {standard_task_runner.py:85} INFO - Job 44: Subtask extract_from
+[2024-11-14T04:56:53.021+0000] {task_command.py:416} INFO - Running <TaskInstance: beautiful.extract_from manual__2024-11-14T04:56:42.114171+00:00 [running]> on host 9864b988206a
+[2024-11-14T04:56:53.383+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='beautiful' AIRFLOW_CTX_TASK_ID='extract_from' AIRFLOW_CTX_EXECUTION_DATE='2024-11-14T04:56:42.114171+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-11-14T04:56:42.114171+00:00'
+[2024-11-14T04:56:57.415+0000] {taskinstance.py:1937} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/util/connection.py", line 72, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/usr/local/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connectionpool.py", line 715, in urlopen
+    httplib_response = self._make_request(
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connectionpool.py", line 404, in _make_request
+    self._validate_conn(conn)
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connectionpool.py", line 1058, in _validate_conn
+    conn.connect()
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connection.py", line 363, in connect
+    self.sock = conn = self._new_conn()
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f64b8fa6af0>: Failed to establish a new connection: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connectionpool.py", line 799, in urlopen
+    retries = retries.increment(
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='en.wikipedia.org', port=443): Max retries exceeded with url: /wiki/List_of_largest_companies_in_the_United_States_by_revenue (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f64b8fa6af0>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 209, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/beautiful.py", line 13, in extract_from
+    page = requests.get(url)
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='en.wikipedia.org', port=443): Max retries exceeded with url: /wiki/List_of_largest_companies_in_the_United_States_by_revenue (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f64b8fa6af0>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+[2024-11-14T04:56:57.445+0000] {taskinstance.py:1400} INFO - Marking task as FAILED. dag_id=beautiful, task_id=extract_from, execution_date=20241114T045642, start_date=20241114T045652, end_date=20241114T045657
+[2024-11-14T04:56:57.484+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 44 for task extract_from (HTTPSConnectionPool(host='en.wikipedia.org', port=443): Max retries exceeded with url: /wiki/List_of_largest_companies_in_the_United_States_by_revenue (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f64b8fa6af0>: Failed to establish a new connection: [Errno -2] Name or service not known')); 594)
+[2024-11-14T04:56:57.525+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2024-11-14T04:56:57.601+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check
