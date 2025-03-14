@@ -1,0 +1,29 @@
+[2024-11-12T14:18:11.891+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: beautiful.extract_from manual__2024-11-12T14:18:01.190499+00:00 [queued]>
+[2024-11-12T14:18:11.918+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: beautiful.extract_from manual__2024-11-12T14:18:01.190499+00:00 [queued]>
+[2024-11-12T14:18:11.920+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 1
+[2024-11-12T14:18:11.963+0000] {taskinstance.py:1382} INFO - Executing <Task(PythonOperator): extract_from> on 2024-11-12 14:18:01.190499+00:00
+[2024-11-12T14:18:11.975+0000] {standard_task_runner.py:57} INFO - Started process 2160 to run task
+[2024-11-12T14:18:11.987+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'beautiful', 'extract_from', 'manual__2024-11-12T14:18:01.190499+00:00', '--job-id', '23', '--raw', '--subdir', 'DAGS_FOLDER/beautiful.py', '--cfg-path', '/tmp/tmp7qnx3i1d']
+[2024-11-12T14:18:11.990+0000] {standard_task_runner.py:85} INFO - Job 23: Subtask extract_from
+[2024-11-12T14:18:12.136+0000] {task_command.py:416} INFO - Running <TaskInstance: beautiful.extract_from manual__2024-11-12T14:18:01.190499+00:00 [running]> on host 9864b988206a
+[2024-11-12T14:18:12.486+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='beautiful' AIRFLOW_CTX_TASK_ID='extract_from' AIRFLOW_CTX_EXECUTION_DATE='2024-11-12T14:18:01.190499+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-11-12T14:18:01.190499+00:00'
+[2024-11-12T14:18:13.828+0000] {warnings.py:109} WARNING - /opt/***/dags/beautiful.py:14: GuessedAtParserWarning: No parser was explicitly specified, so I'm using the best available HTML parser for this system ("lxml"). This usually isn't a problem, but if you run this code on another system, or in a different virtual environment, it may use a different parser and behave differently.
+
+The code that caused this warning is on line 14 of the file /opt/***/dags/beautiful.py. To get rid of this warning, pass the additional argument 'features="lxml"' to the BeautifulSoup constructor.
+
+  soup = BeautifulSoup(page.text, 'html')
+
+[2024-11-12T14:18:14.376+0000] {python.py:194} INFO - Done. Returned value was:   Rank                Name                 Industry  Profits(USD millions)
+0    1               Apple              Electronics                  96995
+1    2  Berkshire Hathaway             Conglomerate                  96223
+2    3            Alphabet               Technology                  73795
+3    4           Microsoft               Technology                  72361
+4    5      JPMorgan Chase               Financials                  49552
+5    6      Meta Platforms               Technology                  39098
+6    7          ExxonMobil       Petroleum industry                  36010
+7    8   Johnson & Johnson  Pharmaceutical industry                  35153
+8    9              Amazon        Retail/Technology                  30425
+9   10              Nvidia               Technology                  29760
+[2024-11-12T14:18:15.046+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=beautiful, task_id=extract_from, execution_date=20241112T141801, start_date=20241112T141811, end_date=20241112T141815
+[2024-11-12T14:18:15.255+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-11-12T14:18:15.382+0000] {taskinstance.py:2778} INFO - 1 downstream tasks scheduled from follow-on schedule check

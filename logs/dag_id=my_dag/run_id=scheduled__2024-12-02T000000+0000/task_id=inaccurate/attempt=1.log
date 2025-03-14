@@ -1,0 +1,17 @@
+[2024-12-06T09:56:59.616+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.inaccurate scheduled__2024-12-02T00:00:00+00:00 [queued]>
+[2024-12-06T09:56:59.686+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.inaccurate scheduled__2024-12-02T00:00:00+00:00 [queued]>
+[2024-12-06T09:56:59.687+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 1
+[2024-12-06T09:56:59.755+0000] {taskinstance.py:1382} INFO - Executing <Task(BashOperator): inaccurate> on 2024-12-02 00:00:00+00:00
+[2024-12-06T09:56:59.769+0000] {standard_task_runner.py:57} INFO - Started process 132 to run task
+[2024-12-06T09:56:59.781+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'inaccurate', 'scheduled__2024-12-02T00:00:00+00:00', '--job-id', '117', '--raw', '--subdir', 'DAGS_FOLDER/my_dag.py', '--cfg-path', '/tmp/tmputj3hsnl']
+[2024-12-06T09:56:59.788+0000] {standard_task_runner.py:85} INFO - Job 117: Subtask inaccurate
+[2024-12-06T09:56:59.948+0000] {task_command.py:416} INFO - Running <TaskInstance: my_dag.inaccurate scheduled__2024-12-02T00:00:00+00:00 [running]> on host 9864b988206a
+[2024-12-06T09:57:00.532+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='inaccurate' AIRFLOW_CTX_EXECUTION_DATE='2024-12-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-12-02T00:00:00+00:00'
+[2024-12-06T09:57:00.551+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-12-06T09:57:00.554+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', "echo 'inaccurate' "]
+[2024-12-06T09:57:00.635+0000] {subprocess.py:86} INFO - Output:
+[2024-12-06T09:57:00.636+0000] {subprocess.py:93} INFO - inaccurate
+[2024-12-06T09:57:00.647+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2024-12-06T09:57:00.779+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=inaccurate, execution_date=20241202T000000, start_date=20241206T095659, end_date=20241206T095700
+[2024-12-06T09:57:00.914+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-12-06T09:57:00.990+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check
